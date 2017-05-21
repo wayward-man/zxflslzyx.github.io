@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>canvas | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="虽然用了好久的的canvas，也做过一点点特效，什么钟表啊，小鱼游戏啊，但是一直有个问题令人头疼，在后来用的时候总得去查一下，所以今天做做笔记，尽量给他记住 一、基本结构1.首先在，html里面加入canvas标签 html1&amp;lt;canvas id=&quot;myCanvas&quot; width=&quot;500px&quot; height=&quot;500px&quot;&amp;gt;&amp;lt;/canvas&amp;gt; 2.然后在js代码里面获取i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="canvas">
+<meta property="og:url" content="http://yoursite.com/2017/05/19/canvas/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="虽然用了好久的的canvas，也做过一点点特效，什么钟表啊，小鱼游戏啊，但是一直有个问题令人头疼，在后来用的时候总得去查一下，所以今天做做笔记，尽量给他记住 一、基本结构1.首先在，html里面加入canvas标签 html1&amp;lt;canvas id=&quot;myCanvas&quot; width=&quot;500px&quot; height=&quot;500px&quot;&amp;gt;&amp;lt;/canvas&amp;gt; 2.然后在js代码里面获取i">
+<meta property="og:image" content="http://yoursite.com/2017/05/19/canvas/img/canvasFont.png">
+<meta property="og:updated_time" content="2017-05-19T07:55:01.070Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="canvas">
+<meta name="twitter:description" content="虽然用了好久的的canvas，也做过一点点特效，什么钟表啊，小鱼游戏啊，但是一直有个问题令人头疼，在后来用的时候总得去查一下，所以今天做做笔记，尽量给他记住 一、基本结构1.首先在，html里面加入canvas标签 html1&amp;lt;canvas id=&quot;myCanvas&quot; width=&quot;500px&quot; height=&quot;500px&quot;&amp;gt;&amp;lt;/canvas&amp;gt; 2.然后在js代码里面获取i">
+<meta name="twitter:image" content="http://yoursite.com/2017/05/19/canvas/img/canvasFont.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-canvas" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/19/canvas/" class="article-date">
+  <time datetime="2017-05-19T06:23:46.000Z" itemprop="datePublished">2017-05-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      canvas
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>虽然用了好久的的canvas，也做过一点点特效，什么钟表啊，小鱼游戏啊，但是一直有个问题令人头疼，<br>在后来用的时候总得去查一下，所以今天做做笔记，尽量给他记住</p>
+<h2 id="一、基本结构"><a href="#一、基本结构" class="headerlink" title="一、基本结构"></a>一、基本结构</h2><p>1.首先在，html里面加入canvas标签</p>
+<p><code>html</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"myCanvas"</span> <span class="attr">width</span>=<span class="string">"500px"</span> <span class="attr">height</span>=<span class="string">"500px"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>2.然后在js代码里面获取id并且创建绘画环境（可以形象的说创建一个画笔）<br><code>javascript</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">//获取canvas元素</span></div><div class="line">		<span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">"myCanvas"</span>);</div><div class="line"><span class="comment">//创建一个画笔（创建一个绘画环境）</span></div><div class="line">		<span class="keyword">var</span> ctx = canvas.getContext(<span class="string">"2d"</span>);</div></pre></td></tr></table></figure></p>
+<h3 id="这样一来我们就把canvas-的基本绘画的结构搭建好了，接下来我们就可以使用，ctx这个画笔（绘画环境）开心的用canvas绘制各种好玩的东西了"><a href="#这样一来我们就把canvas-的基本绘画的结构搭建好了，接下来我们就可以使用，ctx这个画笔（绘画环境）开心的用canvas绘制各种好玩的东西了" class="headerlink" title="这样一来我们就把canvas 的基本绘画的结构搭建好了，接下来我们就可以使用，ctx这个画笔（绘画环境）开心的用canvas绘制各种好玩的东西了"></a>这样一来我们就把canvas 的基本绘画的结构搭建好了，接下来我们就可以使用，ctx这个画笔（绘画环境）开心的用canvas绘制各种好玩的东西了</h3><h2 id="二、拿起画笔，开始绘制"><a href="#二、拿起画笔，开始绘制" class="headerlink" title="二、拿起画笔，开始绘制"></a>二、拿起画笔，开始绘制</h2><h4 id="1-画矩形"><a href="#1-画矩形" class="headerlink" title="1.画矩形"></a>1.画矩形</h4><a id="more"></a>
+<p><code>js</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//用于填充绘画的颜色</span></div><div class="line">		ctx.fillStyle = <span class="string">"black"</span>;</div><div class="line"><span class="comment">//ctx.setFillColor("red");两个都可以</span></div><div class="line"><span class="comment">//画矩形fiilRect(x,y,width,height)</span></div><div class="line">		ctx.fillRect(<span class="number">0</span>,<span class="number">0</span>,<span class="number">400</span>,<span class="number">400</span>);</div></pre></td></tr></table></figure></p>
+<h1 id="图片站位"><a href="#图片站位" class="headerlink" title="图片站位"></a>图片站位</h1><h4 id="2-画边框"><a href="#2-画边框" class="headerlink" title="2.画边框"></a>2.画边框</h4><p><code>js</code><br>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">  </div><div class="line"><span class="comment">//画边框</span></div><div class="line">		ctx.strokeStyle = <span class="string">"red"</span>;</div><div class="line">		ctx.strokeRect(<span class="number">100</span>,<span class="number">100</span>,<span class="number">40</span>,<span class="number">40</span>)</div></pre></td></tr></table></figure></p>
+<h1 id="图片站位-1"><a href="#图片站位-1" class="headerlink" title="图片站位"></a>图片站位</h1><h4 id="3-画圆"><a href="#3-画圆" class="headerlink" title="3.画圆"></a>3.画圆</h4><p><code>js</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"> 		</div><div class="line"><span class="comment">//画圆,beginPath()开始一个路径或者重置当前路径</span></div><div class="line">		ctx.beginPath();</div><div class="line"><span class="comment">//arc()使用一个中心点和半径</span></div><div class="line"><span class="comment">//为当前画布的子路径添加一条弧arc(x,y,r,弧度的开始，弧度的结束，)</span></div><div class="line">		ctx.arc(<span class="number">200</span>,<span class="number">200</span>,<span class="number">50</span>,<span class="number">0</span>,<span class="number">2</span>*<span class="built_in">Math</span>.PI,<span class="literal">false</span>);</div><div class="line">		ctx.closePath();</div><div class="line"> 		ctx.stroke();</div></pre></td></tr></table></figure></p>
+<h1 id="图片站位-2"><a href="#图片站位-2" class="headerlink" title="图片站位"></a>图片站位</h1><h4 id="3-画直线"><a href="#3-画直线" class="headerlink" title="3.画直线"></a>3.画直线</h4><p>   <code>js</code><br>   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 画直线</span></div><div class="line">ctx.beginPath();</div><div class="line"><span class="comment">//直线宽度</span></div><div class="line">ctx.lineWidth=<span class="string">"5"</span>;</div><div class="line">ctx.strokeStyle = <span class="string">"blue"</span>;</div><div class="line"><span class="comment">//从（x，y）开始绘制</span></div><div class="line">ctx.moveTo(<span class="number">0</span>,<span class="number">300</span>);</div><div class="line"><span class="comment">//绘制到（x,y）</span></div><div class="line">ctx.lineTo(<span class="number">250</span>,<span class="number">240</span>);</div><div class="line">ctx.stroke();</div></pre></td></tr></table></figure></p>
+<h1 id="图片站位-3"><a href="#图片站位-3" class="headerlink" title="图片站位"></a>图片站位</h1><h4 id="4-画字体"><a href="#4-画字体" class="headerlink" title="4.画字体"></a>4.画字体</h4><p><code>js</code> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">"canvas"</span>);</div><div class="line">			<span class="keyword">var</span> context = canvas.getContext(<span class="string">"2d"</span>);</div><div class="line"></div><div class="line">			context.beginPath();</div><div class="line">			context.moveTo(<span class="number">100</span>, <span class="number">10</span>);</div><div class="line">			context.lineTo(<span class="number">100</span>, <span class="number">350</span>);</div><div class="line">			context.stroke();</div><div class="line">			<span class="comment">//设置字体</span></div><div class="line">			context.font = <span class="string">"bold 48px 微软雅黑"</span>;</div><div class="line">			<span class="comment">//filltext（显示的字,x,y);</span></div><div class="line">			context.fillText(<span class="string">"曹萌(default)"</span>, <span class="number">100</span>, <span class="number">100</span>)</div><div class="line"></div><div class="line">			context.textAlign = <span class="string">"left"</span>;</div><div class="line">			context.fillText(<span class="string">"曹萌"</span>, <span class="number">100</span>, <span class="number">150</span>)</div><div class="line"></div><div class="line">			context.textAlign = <span class="string">"center"</span>;</div><div class="line">			context.fillText(<span class="string">"曹萌"</span>, <span class="number">100</span>, <span class="number">200</span>)</div><div class="line"></div><div class="line">			context.textAlign = <span class="string">"right"</span>;</div><div class="line">			context.fillText(<span class="string">"曹萌"</span>, <span class="number">100</span>, <span class="number">250</span>)</div><div class="line"></div><div class="line">			<span class="comment">//设置水平的基准线</span></div><div class="line">			context.beginPath();</div><div class="line">			context.moveTo(<span class="number">10</span>, <span class="number">400</span>);</div><div class="line">			context.lineTo(<span class="number">500</span>, <span class="number">400</span>);</div><div class="line">			context.stroke();</div><div class="line"></div><div class="line">			context.textBaseline = <span class="string">"top"</span>;</div><div class="line">			context.strokeText(<span class="string">"T"</span>, <span class="number">50</span>, <span class="number">400</span>);</div><div class="line">			context.textBaseline = <span class="string">"middle"</span>;</div><div class="line">			context.strokeText(<span class="string">"M"</span>, <span class="number">150</span>, <span class="number">400</span>);</div><div class="line">			context.textBaseline = <span class="string">"bottom"</span>;</div><div class="line">			context.strokeText(<span class="string">"B"</span>, <span class="number">250</span>, <span class="number">400</span>);</div><div class="line">			context.textBaseline = <span class="string">"hanging"</span>;</div><div class="line"></div><div class="line">			context.strokeText(<span class="string">"H"</span>, <span class="number">350</span>, <span class="number">400</span>)</div></pre></td></tr></table></figure></p>
+<p><img src="./img/canvasFont.png" width="400px" height="300px"></p>
+<h4 id="5-设置阴影"><a href="#5-设置阴影" class="headerlink" title="5.设置阴影"></a>5.设置阴影</h4><p><code>js</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">		</div><div class="line"></div><div class="line">context.shadowColor= <span class="string">"blueviolet"</span>;<span class="comment">//阴影颜色</span></div><div class="line">context.shadowOffsetX = <span class="number">-10</span>; <span class="comment">//向x轴偏移坐标</span></div><div class="line">context.shadowOffsetY = <span class="number">10</span>;  <span class="comment">//向y轴偏移坐标</span></div><div class="line">context.shadowBlur = <span class="number">5</span>;      <span class="comment">//虚化度</span></div><div class="line">context.strokeText(<span class="string">"安阳"</span>,<span class="number">450</span>,<span class="number">450</span>)</div></pre></td></tr></table></figure></p>
+<h4 id="6-渐变色"><a href="#6-渐变色" class="headerlink" title="6.渐变色"></a>6.渐变色</h4><p><code>js</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">context.shadowColor = <span class="string">"blueviolet"</span>; <span class="comment">//阴影颜色</span></div><div class="line">		context.shadowOffsetX = <span class="number">-10</span>; <span class="comment">//向x轴偏移坐标</span></div><div class="line">		context.shadowOffsetY = <span class="number">10</span>; <span class="comment">//向y轴偏移坐标</span></div><div class="line">		context.shadowBlur = <span class="number">5</span>; <span class="comment">//虚化度</span></div><div class="line">		context.strokeText(<span class="string">"安阳"</span>, <span class="number">450</span>, <span class="number">450</span>)</div><div class="line">			<span class="comment">//渐变色</span></div><div class="line">		<span class="keyword">var</span> gradient = <span class="built_in">document</span>.getElementById(<span class="string">"myCanvas"</span>);</div><div class="line">		<span class="keyword">var</span> ctx = gradient.getContext(<span class="string">"2d"</span>);</div><div class="line">		ctx.font = <span class="string">"30px verdana"</span></div><div class="line"></div><div class="line">		<span class="comment">//创建渐变色</span></div><div class="line">		<span class="keyword">var</span> g = ctx.createLinearGradient(<span class="number">0</span>, <span class="number">0</span>, gradient.width, gradient.height);</div><div class="line">		g.addColorStop(<span class="string">"0"</span>, <span class="string">"yellow"</span>);<span class="comment">//0表示起点</span></div><div class="line">		g.addColorStop(<span class="string">"0.5"</span>, <span class="string">"blue"</span>);<span class="comment">//表示中间</span></div><div class="line">		g.addColorStop(<span class="string">"1"</span>, <span class="string">"red"</span>);<span class="comment">//1表示中间</span></div><div class="line">		ctx.strokeStyle = g;</div><div class="line">		ctx.strokeText(<span class="string">"hello word!"</span>, <span class="number">10</span>, <span class="number">90</span>)</div></pre></td></tr></table></figure></p>
+<p><code>js</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
+<p><code>js</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
+<p><code>js</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
+<p><code>js</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/05/19/canvas/" data-id="cj2vgrvuw0000v0te5pecu24m" class="article-share-link">Delen</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/05/19/blog/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ouder</strong>
+      <div class="article-nav-title">blog</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archieven</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recente berichten</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/05/19/canvas/">canvas</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/19/blog/">blog</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/18/boxModel/">boxModel</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/15/firstPage/">first Page</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/15/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

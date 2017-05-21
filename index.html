@@ -50,7 +50,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -60,6 +60,51 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-canvas" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/19/canvas/" class="article-date">
+  <time datetime="2017-05-19T06:23:46.000Z" itemprop="datePublished">2017-05-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/19/canvas/">canvas</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>虽然用了好久的的canvas，也做过一点点特效，什么钟表啊，小鱼游戏啊，但是一直有个问题令人头疼，<br>在后来用的时候总得去查一下，所以今天做做笔记，尽量给他记住</p>
+<h2 id="一、基本结构"><a href="#一、基本结构" class="headerlink" title="一、基本结构"></a>一、基本结构</h2><p>1.首先在，html里面加入canvas标签</p>
+<p><code>html</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"myCanvas"</span> <span class="attr">width</span>=<span class="string">"500px"</span> <span class="attr">height</span>=<span class="string">"500px"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>2.然后在js代码里面获取id并且创建绘画环境（可以形象的说创建一个画笔）<br><code>javascript</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">//获取canvas元素</span></div><div class="line">		<span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">"myCanvas"</span>);</div><div class="line"><span class="comment">//创建一个画笔（创建一个绘画环境）</span></div><div class="line">		<span class="keyword">var</span> ctx = canvas.getContext(<span class="string">"2d"</span>);</div></pre></td></tr></table></figure></p>
+<h3 id="这样一来我们就把canvas-的基本绘画的结构搭建好了，接下来我们就可以使用，ctx这个画笔（绘画环境）开心的用canvas绘制各种好玩的东西了"><a href="#这样一来我们就把canvas-的基本绘画的结构搭建好了，接下来我们就可以使用，ctx这个画笔（绘画环境）开心的用canvas绘制各种好玩的东西了" class="headerlink" title="这样一来我们就把canvas 的基本绘画的结构搭建好了，接下来我们就可以使用，ctx这个画笔（绘画环境）开心的用canvas绘制各种好玩的东西了"></a>这样一来我们就把canvas 的基本绘画的结构搭建好了，接下来我们就可以使用，ctx这个画笔（绘画环境）开心的用canvas绘制各种好玩的东西了</h3><h2 id="二、拿起画笔，开始绘制"><a href="#二、拿起画笔，开始绘制" class="headerlink" title="二、拿起画笔，开始绘制"></a>二、拿起画笔，开始绘制</h2><h4 id="1-画矩形"><a href="#1-画矩形" class="headerlink" title="1.画矩形"></a>1.画矩形</h4>
+        
+          <p class="article-more-link">
+            <a href="/2017/05/19/canvas/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/05/19/canvas/" data-id="cj2vgrvuw0000v0te5pecu24m" class="article-share-link">Delen</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-blog" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -88,7 +133,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/19/blog/" data-id="cj2vc7jla0000kwte3nk3vwyt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/19/blog/" data-id="cj2vgqsjm0000w8teiuo5al0c" class="article-share-link">Delen</a>
       
       
     </footer>
@@ -132,7 +177,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/18/boxModel/" data-id="cj2vc4rxw0001uotevg3x4vbh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/18/boxModel/" data-id="cj2vgqsk10002w8texwcgbb9x" class="article-share-link">Delen</a>
       
       
     </footer>
@@ -186,7 +231,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/15/firstPage/" data-id="cj2vc4rxn0000uote8kdeqp8m" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/15/firstPage/" data-id="cj2vgqsk10003w8tez63hb66a" class="article-share-link">Delen</a>
       
       
     </footer>
@@ -231,7 +276,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/15/hello-world/" data-id="cj2vc4ry30002uoteoj3zbjh4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/05/15/hello-world/" data-id="cj2vgqsk10001w8tez79nho3p" class="article-share-link">Delen</a>
       
       
     </footer>
@@ -256,7 +301,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archieven</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
     </div>
@@ -266,9 +311,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Recente berichten</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/05/19/canvas/">canvas</a>
+          </li>
         
           <li>
             <a href="/2017/05/19/blog/">blog</a>
