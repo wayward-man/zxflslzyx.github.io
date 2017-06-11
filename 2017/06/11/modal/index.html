@@ -3,14 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo</title>
+  <title>modal | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="最全的模态框html123456789101112131415161718192021222324&amp;lt;div class=&quot;container&quot;&amp;gt;&amp;lt;button class=&quot;btn btn-primary&quot; data-toggle=&quot;modal&quot; data-target=&quot;#xixi&quot;data-keyboard=&quot;false&quot; data-backdrop=&quot;false&quot;&amp;gt;模">
+<meta property="og:type" content="article">
+<meta property="og:title" content="modal">
+<meta property="og:url" content="http://yoursite.com/2017/06/11/modal/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="最全的模态框html123456789101112131415161718192021222324&amp;lt;div class=&quot;container&quot;&amp;gt;&amp;lt;button class=&quot;btn btn-primary&quot; data-toggle=&quot;modal&quot; data-target=&quot;#xixi&quot;data-keyboard=&quot;false&quot; data-backdrop=&quot;false&quot;&amp;gt;模">
+<meta property="og:updated_time" content="2017-06-11T03:32:18.869Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="modal">
+<meta name="twitter:description" content="最全的模态框html123456789101112131415161718192021222324&amp;lt;div class=&quot;container&quot;&amp;gt;&amp;lt;button class=&quot;btn btn-primary&quot; data-toggle=&quot;modal&quot; data-target=&quot;#xixi&quot;data-keyboard=&quot;false&quot; data-backdrop=&quot;false&quot;&amp;gt;模">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -59,9 +63,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-modal" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-modal" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/06/11/modal/" class="article-date">
   <time datetime="2017-06-11T03:22:44.000Z" itemprop="datePublished">2017-06-11</time>
@@ -74,8 +76,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/11/modal/">modal</a>
+    <h1 class="article-title" itemprop="name">
+      modal
     </h1>
   
 
@@ -95,235 +97,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-canvas" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/05/19/canvas/" class="article-date">
-  <time datetime="2017-05-19T06:23:46.000Z" itemprop="datePublished">2017-05-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/19/canvas/">canvas</a>
-    </h1>
+    <a href="/2017/05/19/canvas/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title">canvas</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>虽然用了好久的的canvas，也做过一点点特效，什么钟表啊，小鱼游戏啊，但是一直有个问题令人头疼，<br>在后来用的时候总得去查一下，所以今天做做笔记，尽量给他记住</p>
-<h2 id="一、基本结构"><a href="#一、基本结构" class="headerlink" title="一、基本结构"></a>一、基本结构</h2><p>1.首先在，html里面加入canvas标签</p>
-<p><code>html</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"myCanvas"</span> <span class="attr">width</span>=<span class="string">"500px"</span> <span class="attr">height</span>=<span class="string">"500px"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>2.然后在js代码里面获取id并且创建绘画环境（可以形象的说创建一个画笔）<br><code>javascript</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">//获取canvas元素</span></div><div class="line">		<span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">"myCanvas"</span>);</div><div class="line"><span class="comment">//创建一个画笔（创建一个绘画环境）</span></div><div class="line">		<span class="keyword">var</span> ctx = canvas.getContext(<span class="string">"2d"</span>);</div></pre></td></tr></table></figure></p>
-<h3 id="这样一来我们就把canvas-的基本绘画的结构搭建好了，接下来我们就可以使用，ctx这个画笔（绘画环境）开心的用canvas绘制各种好玩的东西了"><a href="#这样一来我们就把canvas-的基本绘画的结构搭建好了，接下来我们就可以使用，ctx这个画笔（绘画环境）开心的用canvas绘制各种好玩的东西了" class="headerlink" title="这样一来我们就把canvas 的基本绘画的结构搭建好了，接下来我们就可以使用，ctx这个画笔（绘画环境）开心的用canvas绘制各种好玩的东西了"></a>这样一来我们就把canvas 的基本绘画的结构搭建好了，接下来我们就可以使用，ctx这个画笔（绘画环境）开心的用canvas绘制各种好玩的东西了</h3><h2 id="二、拿起画笔，开始绘制"><a href="#二、拿起画笔，开始绘制" class="headerlink" title="二、拿起画笔，开始绘制"></a>二、拿起画笔，开始绘制</h2><h4 id="1-画矩形"><a href="#1-画矩形" class="headerlink" title="1.画矩形"></a>1.画矩形</h4>
-        
-          <p class="article-more-link">
-            <a href="/2017/05/19/canvas/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/19/canvas/" data-id="cj3s5bcfp00053ctedvur5yvt" class="article-share-link">Partager</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-blog" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/05/19/blog/" class="article-date">
-  <time datetime="2017-05-19T04:17:05.000Z" itemprop="datePublished">2017-05-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/19/blog/">blog</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>我的博客园链接为 <a href="http://www.cnblogs.com/zhangxiaofei/" target="_blank" rel="external">博客园</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/19/blog/" data-id="cj3s5bccl00003cte4sifhcqe" class="article-share-link">Partager</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-boxModel" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/05/18/boxModel/" class="article-date">
-  <time datetime="2017-05-18T05:25:09.000Z" itemprop="datePublished">2017-05-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/18/boxModel/">boxModel</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="css中-Box-model-分类"><a href="#css中-Box-model-分类" class="headerlink" title="css中 Box model 分类"></a>css中 Box model 分类</h3><p>css中Box 分为两种，一种是W3C文章 和 IE 标准盒子模型</p>
-<p>怪异模式是“部分浏览器在支持w3c标准的同时还保留了原来的解析模式，怪异模式主要表现在IE内核的浏览器</p>
-<p>在标准模式下，一个<em>块</em>的总宽度 = <code>magin +  padding + border</code></p>
-<p>在怪异模式下，一个<em>快</em>的总宽度 = <code>width + margin</code>(也就是说width已经包含了padding和border值)</p>
-        
-          <p class="article-more-link">
-            <a href="/2017/05/18/boxModel/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/18/boxModel/" data-id="cj3s5bcfd00023cteu11f8txj" class="article-share-link">Partager</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-firstPage" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/05/15/firstPage/" class="article-date">
-  <time datetime="2017-05-15T04:20:34.360Z" itemprop="datePublished">2017-05-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/15/firstPage/">first Page</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>忙了一上午终于把<strong>hexo个人博客矿建</strong>给搭建好了，肩膀酸，哎，赶紧总结一下吧，以备后日复习只用</p>
-<h1 id="markdown-基本操作"><a href="#markdown-基本操作" class="headerlink" title="markdown 基本操作"></a>markdown 基本操作</h1><h2 id="关于段落换行"><a href="#关于段落换行" class="headerlink" title="关于段落换行"></a>关于段落换行</h2><pre><code>单个回车
-视为空格。
-连续回车
-
-才能分段。
-
-行尾加两个空格，这里-&gt;  
-即可段内换行。
-
-*这些文字显示为斜体*
-
-**这些文字显示为粗体
-</code></pre>
-        
-          <p class="article-more-link">
-            <a href="/2017/05/15/firstPage/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/15/firstPage/" data-id="cj3s5bcfh00043ctey0k9who1" class="article-share-link">Partager</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/05/15/hello-world/" class="article-date">
-  <time datetime="2017-05-15T02:26:01.639Z" itemprop="datePublished">2017-05-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/15/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/05/15/hello-world/" data-id="cj3s5bcf700013cte0cj8iryb" class="article-share-link">Partager</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 </section>
         
