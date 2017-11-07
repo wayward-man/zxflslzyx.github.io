@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>canvas api详解 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一、基本结构  html  1&amp;lt;canvas id=&amp;quot;canvas&amp;quot; width=&amp;quot;800&amp;quot; height=&amp;quot;600&amp;quot; &amp;gt;&amp;lt;/canvas&amp;gt;   JavaScript12var cavs = document.getElementById(&apos;canvas&apos;); var ctx = cavs.getContext(&apos;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="canvas api详解">
+<meta property="og:url" content="http://yoursite.com/2017/11/07/canvas-api详解/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一、基本结构  html  1&amp;lt;canvas id=&amp;quot;canvas&amp;quot; width=&amp;quot;800&amp;quot; height=&amp;quot;600&amp;quot; &amp;gt;&amp;lt;/canvas&amp;gt;   JavaScript12var cavs = document.getElementById(&apos;canvas&apos;); var ctx = cavs.getContext(&apos;">
+<meta property="og:updated_time" content="2017-11-07T15:52:35.026Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="canvas api详解">
+<meta name="twitter:description" content="一、基本结构  html  1&amp;lt;canvas id=&amp;quot;canvas&amp;quot; width=&amp;quot;800&amp;quot; height=&amp;quot;600&amp;quot; &amp;gt;&amp;lt;/canvas&amp;gt;   JavaScript12var cavs = document.getElementById(&apos;canvas&apos;); var ctx = cavs.getContext(&apos;">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-canvas-api详解" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/07/canvas-api详解/" class="article-date">
+  <time datetime="2017-11-07T15:51:10.000Z" itemprop="datePublished">2017-11-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      canvas api详解
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="一、基本结构"><a href="#一、基本结构" class="headerlink" title="一、基本结构"></a>一、基本结构</h4><blockquote>
+<p> html</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;canvas id=&quot;canvas&quot; width=&quot;800&quot; height=&quot;600&quot; &gt;&lt;/canvas&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<p> JavaScript<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> cavs = <span class="built_in">document</span>.getElementById(<span class="string">'canvas'</span>); </div><div class="line"><span class="keyword">var</span> ctx = cavs.getContext(<span class="string">'2d'</span>); <span class="comment">//创建画布</span></div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>二、开始画矩形</p>
+<blockquote>
+<p>画矩形是canvas最基本的操作，有多种方法，下面大概举几个例子</p>
+</blockquote>
+<ul>
+<li>方法 ①</li>
+</ul>
+<blockquote>
+<p> JavaScript<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">  ctx.rect(x,y,width,height);</div><div class="line">  ctx.stroke()</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>这是最简单的方式</p>
+<hr>
+<ul>
+<li>方法 ②</li>
+</ul>
+<blockquote>
+<p> JavaScript<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">  ctx.moveTo(x,y);</div><div class="line">  ctx.lineTo(x + width, y);</div><div class="line">  ctx.lineTo(x + width, y + height);</div><div class="line">  ctx.lineTo(x, y + height);</div><div class="line">  ctx.lineTo(x,y);<span class="comment">// 或者 ctx.closePath();</span></div><div class="line">  ctx.stroke()</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>这也是 ctx.rect() 的实现原理</p>
+<hr>
+<ul>
+<li>方法 ③</li>
+</ul>
+<blockquote>
+<p> JavaScript<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line"> ctx.fillRect(x, y, width, height);</div><div class="line"> ctx.strokeRect(x, y, width, height)</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>这是canvas自己封装的画矩形的api，挺方便的</p>
+<hr>
+<h4 id="三、线条属性"><a href="#三、线条属性" class="headerlink" title="三、线条属性"></a>三、线条属性</h4><blockquote>
+<p>lineCap 他的值有</p>
+<ul>
+<li>buff(default)</li>
+<li>round (线条的开始和结尾 是圆滑的)</li>
+<li>lineJoin (线条的开始和结尾)<br>lineJoin 控制 线条连接的状态</li>
+<li>bevel(default)</li>
+<li>miter (尖叫miterLimit)</li>
+<li>round (为圆弧, 和 ctx.lineCap = ‘round’ 配合在一起可以让整个线条转折和开始结尾 都是圆滑的)</li>
+</ul>
+</blockquote>
+<h3 id="四、渐变"><a href="#四、渐变" class="headerlink" title="四、渐变"></a>四、渐变</h3><blockquote>
+<p>线性渐变</p>
+<ul>
+<li>step1 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> grd = ctx.createLinearGradient(xstart,ystart,xend,yend);</div><div class="line"><span class="comment">/*</span></div><div class="line">  可以理解为，用一个有向线段，来确定渐变的方向</div><div class="line">*/</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li>step2<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">grd.addColorStop(stop,color);</div><div class="line"><span class="comment">/*</span></div><div class="line">stop：浮点，表示当前的比例，[0.0,1.0]</div><div class="line">color: 符合css规范的所有颜色</div><div class="line">*/</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>径向渐变</p>
+<ul>
+<li>step1 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> grd = ctx.createRadialGradient(x0,y1,r0,x1,y1,r1);</div><div class="line"><span class="comment">/*</span></div><div class="line">  可以理解为，用两个圆来控制径向的辐射范围</div><div class="line">*/</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li>step2<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"> grd.addColorStop(stop,color);</div><div class="line"> <span class="comment">/*</span></div><div class="line">这个。。。同上面的线性渐变</div><div class="line"> */</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p>上面的都是可以最后被 ctx.fillStyle || strokeStyle = grd ;这样的形式使用。能够被 这样使用的还有一个接口那就是 createPattern,暂时还行不起来如何形容，后来补上</p>
+<blockquote>
+<p>JavaScript语法</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">context.createPattern(image,<span class="string">"repeat|repeat-x|repeat-y|no-repeat"</span>);</div><div class="line">    <span class="comment">/*</span></div><div class="line">     imgage：规定要使用的图片、画布或视频元素</div><div class="line">     repeat：默认。该模式在水平和垂直方向重复 </div><div class="line">     repeat-x：	该模式只在水平方向重复。</div><div class="line">     repeat-y	该模式只在垂直方向重复。</div><div class="line">     no-repeat	该模式只显示一次（不重复）</div><div class="line">     </div><div class="line">    */</div></pre></td></tr></table></figure>
+<h4 id="五、画圆、弧、曲线"><a href="#五、画圆、弧、曲线" class="headerlink" title="五、画圆、弧、曲线"></a>五、画圆、弧、曲线</h4><blockquote>
+<p>圆<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ctx.arc(x, y ,r , startAngle, endAngle, r, anticlockwise = <span class="literal">false</span>)</div><div class="line"><span class="comment">/*</span></div><div class="line"> 需要注意的事 角度是 顺时针 依次增大，不会随着绘制</div><div class="line"> 的顺序改变，（也就是说可以把角度理解为坐标，是定死的）</div><div class="line">*/</div></pre></td></tr></table></figure></p>
+<p>贝塞尔二次曲线</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">ctx.moveTO(x0,y0);</div><div class="line">ctx.quadraticCurve(x1, y1, x2, y2);</div><div class="line">/*</div><div class="line">    (x0, y0) : 起点</div><div class="line">    (x1, y1) ：控制点</div><div class="line">    (x2, y2) ：终点</div><div class="line">*/</div></pre></td></tr></table></figure>
+<blockquote>
+<p>贝塞尔三次曲线</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">ctx.moveTO(x0,y0);</div><div class="line">ctx.bezeirCurveTo(x1, y1, x2, y2);</div><div class="line">/*</div><div class="line">    (x0, y0) : 起点</div><div class="line">    (x1, y1) ：控制点</div><div class="line">    (x2, y2) ：控制点</div><div class="line">    (x3, y3) : 终点</div><div class="line">*/</div></pre></td></tr></table></figure>
+<p>ps:他们都是 以起点 和  终点 为曲线的 始末点， 以控制点和他们的连线 为切线 画出曲线</p>
+<h4 id="五、画文字"><a href="#五、画文字" class="headerlink" title="五、画文字"></a>五、画文字</h4><blockquote>
+<p>font属性</p>
+<ul>
+<li>示例<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">context.font=&quot;italic small-caps bold 12px arial&quot;;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p> 属性值得顺序为 </p>
+<ul>
+<li>font-style （normal  italic oblique)</li>
+<li>font-variant (normal small-caps)</li>
+<li>font-weight  (bold nomal 或者数字)</li>
+<li>font-size / line-height (规定字号和行高，以像素计)</li>
+<li>font-family    (规定字体系列。)</li>
+</ul>
+<blockquote>
+<p>textAlign</p>
+</blockquote>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ctx.textAlign = &apos;left/right/center&apos;;</div><div class="line">ctx.fillRect = (&apos;随便什么字&apos;，x,y);</div></pre></td></tr></table></figure>
+<p> ==ps：这里的左右center指的是这鞋子的哪里放在与x挨着==</p>
+<p> 当然有水平方向的 也会有 垂直方向的</p>
+<blockquote>
+<p>textBaseLine</p>
+</blockquote>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ctx.textAlign = &apos;top/middle/bottom&apos;;</div><div class="line">ctx.fillRect = (&apos;随便什么字&apos;，x,y);</div></pre></td></tr></table></figure>
+<p>  ==ps：这里的上下中指的是这鞋子的哪里放在与y挨着==</p>
+<blockquote>
+<p>ctx.measureText(String).width<br>可以获得 该字体 的 实际宽度</p>
+</blockquote>
+<h4 id="六、透明度"><a href="#六、透明度" class="headerlink" title="六、透明度"></a>六、透明度</h4><p><code>ctx.globalAlpha = 0.7</code><br>表示透明度为 0.7</p>
+<h4 id="七、重叠显示方式（globalcompositeOperation"><a href="#七、重叠显示方式（globalcompositeOperation" class="headerlink" title="七、重叠显示方式（globalcompositeOperation)"></a>七、重叠显示方式（globalcompositeOperation)</h4><blockquote>
+<p>JavaScript语法</p>
+</blockquote>
+<p><code>context.globalCompositeOperation=&quot;source-in&quot;;</code></p>
+<blockquote>
+<p>globalCompositeOperation</p>
+</blockquote>
+<p>属性设置或返回如何将一个源（新的）图像绘制到目标（已有）的图像上。</p>
+<blockquote>
+<p>源图像 = 您打算放置到画布上的绘图。</p>
+<p>目标图像 = 您已经放置在画布上的绘图。</p>
+</blockquote>
+<p>可能的值为 </p>
+<ul>
+<li><p>source-over    默认。在目标图像上显示源图像。</p>
+</li>
+<li><p>source-atop    在目标图像顶部显示源图像。源图像位于目标图像之外的部分是不可见的。</p>
+</li>
+<li>source-in    在目标图像中显示源图像。只有目标图像内的源图像部分会显示，目标图像是透明的。</li>
+<li>source-out    在目标图像之外显示源图像。只会显示目标图像之外源图像部分，目标图像是透明的。</li>
+<li>destination-over    在源图像上方显示目标图像。</li>
+<li>destination-atop    在源图像顶部显示目标图像。源图像之外的目标图像部分不会被显示。</li>
+<li>destination-in    在源图像中显示目标图像。只有源图像内的目标图像部分会被显示，源图像是透明的。</li>
+<li>destination-out    在源图像外显示目标图像。只有源图像外的目标图像部分会被显示，源图像是透明的。</li>
+<li>lighter    显示源图像 + 目标图像。</li>
+<li>copy    显示源图像。忽略目标图像。</li>
+<li>xor    使用异或操作对源图像与目标图像进行组合。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/11/07/canvas-api详解/" data-id="cj9psobqv000478tejg4t4juk" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/06/11/modal/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title">modal</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/11/07/canvas-api详解/">canvas api详解</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/11/modal/">modal</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/19/canvas/">canvas</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/19/blog/">blog</a>
+          </li>
+        
+          <li>
+            <a href="/2017/05/18/boxModel/">boxModel</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
