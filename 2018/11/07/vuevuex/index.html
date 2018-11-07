@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="vue vuex," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="背景 vue 全家桶对我来说，已经多多少少用了快一年了，但是每次用到一些东西总是需要去查，总是不能很确定，加上洒家也不是一直连续用 vue，导致我每次学会的的东西，过段时间在用的时候还需要重新查文档，这让我感觉十分困扰，所以我觉把整个学过的东西系统性的整理出来应该会有所帮助，希望自己以后能够坚持吧。 安装 vuex  安装 Vuex(前提是已经前提是已经用 Vue 脚手架工具构建好项目） npm">
+<meta name="keywords" content="vue vuex">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我的主页">
+<meta property="og:url" content="http://yoursite.com/2018/11/07/vuevuex/index.html">
+<meta property="og:site_name" content="我的主页">
+<meta property="og:description" content="背景 vue 全家桶对我来说，已经多多少少用了快一年了，但是每次用到一些东西总是需要去查，总是不能很确定，加上洒家也不是一直连续用 vue，导致我每次学会的的东西，过段时间在用的时候还需要重新查文档，这让我感觉十分困扰，所以我觉把整个学过的东西系统性的整理出来应该会有所帮助，希望自己以后能够坚持吧。 安装 vuex  安装 Vuex(前提是已经前提是已经用 Vue 脚手架工具构建好项目） npm">
+<meta property="og:updated_time" content="2018-11-07T12:56:39.895Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="我的主页">
+<meta name="twitter:description" content="背景 vue 全家桶对我来说，已经多多少少用了快一年了，但是每次用到一些东西总是需要去查，总是不能很确定，加上洒家也不是一直连续用 vue，导致我每次学会的的东西，过段时间在用的时候还需要重新查文档，这让我感觉十分困扰，所以我觉把整个学过的东西系统性的整理出来应该会有所帮助，希望自己以后能够坚持吧。 安装 vuex  安装 Vuex(前提是已经前提是已经用 Vue 脚手架工具构建好项目） npm">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/11/07/vuevuex/"/>
+
+
+
+
+
+  <title> | 我的主页</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">我的主页</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/07/vuevuex/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xiaofei">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的主页">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-07T20:56:07+08:00">
+                2018-11-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>背景</p>
+<p>vue 全家桶对我来说，已经多多少少用了快一年了，但是每次用到一些东西总是需要去查，总是不能很确定，加上洒家也不是一直连续用 vue，导致我每次学会的的东西，过段时间在用的时候还需要重新查文档，这让我感觉十分困扰，所以我觉把整个学过的东西系统性的整理出来应该会有所帮助，希望自己以后能够坚持吧。</p>
+<p>安装 vuex</p>
+</blockquote>
+<h4 id="安装-Vuex"><a href="#安装-Vuex" class="headerlink" title="安装 Vuex"></a>安装 Vuex</h4><p><em>(前提是已经前提是已经用 Vue 脚手架工具构建好项目）</em></p>
+<p>npm install vuex –save</p>
+<ul>
+<li>新建一个文件夹<code>vuex</code>，在文件夹里面新建 store.js，并在文件中引入 vuex</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">  import Vue <span class="keyword">from</span> <span class="string">'vue'</span></div><div class="line">  <span class="keyword">import</span> Vuex <span class="keyword">from</span> <span class="string">'vuex'</span></div><div class="line">  Vue.use(Vuex)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>通过上面的步骤，vuex 就算是安装注册成功了，下面就可以用 vuex 搞事情了</p>
+</blockquote>
+<hr>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">"./vuex/store"</span>;</div></pre></td></tr></table></figure>
+<ul>
+<li>最后我们需要实例化 vue 对象时加入 store 对象</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line"> new Vue(&#123;</div><div class="line">  el: &apos;#app&apos;,</div><div class="line">  router,</div><div class="line">  store,//使用store</div><div class="line">  template: &apos;&lt;App/&gt;&apos;,</div><div class="line">  components: &#123; App &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>完成以上的工作，下面我们就可以做个属于自己的小 demo 了</p>
+<hr>
+<blockquote>
+<p>第一个 demo</p>
+</blockquote>
+<ul>
+<li>在 <code>store.js</code>文件里</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"> <span class="keyword">const</span> state = &#123;</div><div class="line">    <span class="attr">count</span>:<span class="number">1</span></div><div class="line"> &#125;</div><div class="line"></div><div class="line"> <span class="keyword">const</span> mutations = &#123;</div><div class="line">     add(state)&#123;</div><div class="line">         state.count++;</div><div class="line">     &#125;,</div><div class="line">     reduce(state)&#123;</div><div class="line">         state.count--;</div><div class="line">     &#125;</div><div class="line"> &#125;;</div><div class="line"> <span class="keyword">const</span> getters = &#123;</div><div class="line">     <span class="attr">isLogin</span>:<span class="function"><span class="params">state</span> =&gt;</span>&#123;</div><div class="line">         <span class="keyword">return</span> state.count</div><div class="line">     &#125;</div><div class="line"> &#125;;</div><div class="line"> <span class="keyword">const</span> sctions = &#123;&#125;;</div><div class="line"></div><div class="line"><span class="comment">//基本格式为</span></div><div class="line"> <span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Vuex.Store(&#123;</div><div class="line">        state，</div><div class="line">        getters，</div><div class="line">        mutations</div><div class="line">  &#125;);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>用 export default 封装好 store 对象，以便外部使用</p>
+</blockquote>
+<p>由于我暂时感觉还用不到 actions，所以就等以后用到了再来补充吧</p>
+<hr>
+<p>下面就是在组件内使用的方法了，</p>
+<ul>
+<li>在<code>components</code>文件夹下新建一个<code>count.vue</code></li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">    &lt;div&gt;</div><div class="line">        &lt;h2&gt;&#123;&#123;msg&#125;&#125;&lt;/h2&gt;</div><div class="line">        &lt;hr/&gt;</div><div class="line">        &lt;h3&gt;&#123;&#123;count&#125;&#125;&lt;/h3&gt;</div><div class="line">        &lt;button @click="add"&gt;+&lt;/button&gt;</div><div class="line">        &lt;button @click="reduce"&gt;-&lt;/button&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    import store from '@/vuex/store'</div><div class="line">    import &#123;mapGetters&#125; from 'vuex';</div><div class="line">    export default&#123;</div><div class="line">        data()&#123;</div><div class="line">            return&#123;</div><div class="line">                msg:'Hello Vuex',</div><div class="line"></div><div class="line">            &#125;</div><div class="line">        &#125;,</div><div class="line">        computed:&#123;</div><div class="line">            count()&#123;</div><div class="line">                return this.$store.state.count;</div><div class="line">            &#125;,</div><div class="line">            isLogin()&#123;</div><div class="line">                return this.$store.getter.isLogin;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">        &#125;,</div><div class="line">        methods:&#123;</div><div class="line">            add()&#123;</div><div class="line">                $store.commit('add')</div><div class="line">            &#125;,</div><div class="line">            reduce()&#123;</div><div class="line">                $store.commit('reduce')</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    &lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>这应该算是最简单的一个 例子了，</p>
+<p>— 接下来我来详细阐述一下 <code>mutations</code> 和<code>getters</code>的使用`；</p>
+<blockquote>
+<p>mutations</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> mutations=&#123;</div><div class="line">       add(state)&#123;</div><div class="line">           state.count+=<span class="number">1</span>;</div><div class="line">       &#125;,</div><div class="line">       addNumber(state,n)&#123;</div><div class="line">           state.count +=n;</div><div class="line">       &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>这里的 mutations 是固定的写法，意思是改变的,store 里面的数仅能通过<code>mutations</code>里面的方法改变,但是必须是同步的，如果这里面出现 异步的逻辑会出现在 unexpected fault,如果要是用异步的逻辑，可以写在 actions 里面，用它处理完后再出发 mutations 来改变状态</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>说了这么多，我们最关心的肯定是在组件里面怎么用，接下来就看一看，我们费了那么大的劲儿，就是为了最后食用我们之前辛勤耕耘的果实了。</p>
+</blockquote>
+<h3 id="store-访问状态对象"><a href="#store-访问状态对象" class="headerlink" title="store 访问状态对象"></a>store 访问状态对象</h3><blockquote>
+<p>const state ,这个就是我们说的访问状态对象，他就是我们 spa（单页面应用程序）中的共享值。</p>
+</blockquote>
+<ul>
+<li>通过 computed 的计算属性赋值<blockquote>
+<p>computed 属性可以在输出前，对 state.js 的值进行改变，我们就里利用这种特性把 store.js 中的 state 赋值给我们模板中的 data 值 <code>多说无益，看代码</code></p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">computed:&#123;</div><div class="line">    yourdata()&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.$store.state.count</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>要注意一定要写 this 要不然找不到$store 的，这种写法虽然好理解，但是写起来麻烦，因此我们可以利用<code>mapState</code>的映射方法，来是我们的代码简洁，方便日后的维护。</p>
+</blockquote>
+<ul>
+<li>通过 mapState 的对象赋值<blockquote>
+<p>首先引入 mapState</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import &#123;mapState&#125; from &apos;vuex&apos;</div></pre></td></tr></table></figure>
+<p>然后还在 computed 计算属性里写如下代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">computed: mapState(&#123;</div><div class="line">  <span class="attr">count</span>: <span class="function"><span class="params">state</span> =&gt;</span> state.count <span class="comment">//理解为传入state对象，修改state.count属性</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<ul>
+<li>或者</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">computed:&#123;</div><div class="line">    ...mapState([<span class="string">'state1'</span>,<span class="string">'state2'</span>,<span class="string">'state3'</span>])</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>再看下 state 的兄弟，getters</p>
+</blockquote>
+<h3 id="getters"><a href="#getters" class="headerlink" title="getters"></a>getters</h3><blockquote>
+<p>getters 可以说是相当于 vue 中的 computed，是依赖于 state 里面的值</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">getters: &#123;</div><div class="line">  <span class="attr">isLogin</span>: <span class="function"><span class="params">state</span> =&gt;</span> &#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Boolean</span>(state.stateValue);</div><div class="line">  &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>使用起来 和 state 十分的像，如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">computed:&#123;</div><div class="line">    isLogin()&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.$store.getters.isLogin;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果多的话可以引入 mapGetters 模块，如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;mapGetters&#125; <span class="keyword">from</span> <span class="string">'vuex'</span>;</div><div class="line"></div><div class="line">&lt;!--在computed里--&gt;</div><div class="line"></div><div class="line">computed:&#123;</div><div class="line">    ...mapGetters(["isLogin"])</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>其实我们还可以 用 <code>mapMutations</code> 来映射我们的 mutation，如下</p>
+</blockquote>
+<p>在<code>store.js</code>文件中写入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">export default new Vuex.Store(&#123;</div><div class="line">       state:&#123;</div><div class="line">           count:1</div><div class="line">       &#125;,</div><div class="line">       mutations:&#123;</div><div class="line">           add(state)&#123;</div><div class="line">               state.count++;</div><div class="line">           &#125;</div><div class="line">           addNumber(state,n)&#123;</div><div class="line">               state.count += n;</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line"> &#125;);</div></pre></td></tr></table></figure>
+<p>然后我们在组件中使用可以直接这样搞</p>
+<p>在<code>testComponent.vue</code>文件中</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"> <span class="keyword">import</span> &#123;mapMutations&#125; <span class="keyword">from</span> <span class="string">'vux'</span>;</div><div class="line"></div><div class="line">methods:&#123;</div><div class="line">    ...mapMutations([</div><div class="line"></div><div class="line">    <span class="string">'add'</span>,<span class="comment">//把 this.add() 映射为 this.$store.commit('add');</span></div><div class="line"></div><div class="line">    <span class="string">'addNumber'</span> <span class="comment">// 将 this.addNumber(n)映射为 this.$store.commit('addNumber',n);</span></div><div class="line">    ]),</div><div class="line"></div><div class="line">    ...map(&#123;</div><div class="line">        <span class="attr">justAdd</span>:<span class="string">'add'</span> <span class="comment">//将 this.justAdd()映射为 this.$store.commit('add');</span></div><div class="line">    &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<p>终于把自己的第一篇文档（在掘金里面）写完了，作为一个经验不足的小菜鸟，希望能够帮到那些刚入门的，还望各路神仙轻喷。</p>
+<h3 id="last-but-not-least"><a href="#last-but-not-least" class="headerlink" title="last but not least"></a>last but not least</h3><p>vuex 真的是特么太好用了，但是我的状态管理就是一把梭，我选择用<code>{}</code>;</p>
+<p>溜了~~~~</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vue-vuex/" rel="tag"># vue vuex</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/07/hello-world/" rel="next" title="first Page">
+                <i class="fa fa-chevron-left"></i> first Page
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/07/vueRouter/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">xiaofei</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">Artikel</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">Tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装-Vuex"><span class="nav-number">1.</span> <span class="nav-text">安装 Vuex</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#store-访问状态对象"><span class="nav-number"></span> <span class="nav-text">store 访问状态对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getters"><span class="nav-number"></span> <span class="nav-text">getters</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#last-but-not-least"><span class="nav-number"></span> <span class="nav-text">last but not least</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xiaofei</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
